@@ -6,11 +6,13 @@ import FlipMove from 'react-flip-move';
 
 
 function Results({ selectedOption }) {
+
     const [movies, SetMovies] = useState([]);
 
     useEffect(()=> {
         async function fetchData() {
             const request = await axios.get(selectedOption);
+            console.log(request)
             SetMovies(request.data.results);
             return request;
         }
@@ -29,3 +31,4 @@ function Results({ selectedOption }) {
 }
 
 export default Results
+
